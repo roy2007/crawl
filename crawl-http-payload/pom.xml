@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.crawl.http.payload</groupId>
+  <artifactId>crawl-http-payload</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>crawl-http-payload</name>
+
+  <properties>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <spring-boot.version>1.5.12.RELEASE</spring-boot.version>
+    <aliyun-sms.version>1.1.0</aliyun-sms.version>
+    <aliyun-sdk.version>4.3.8</aliyun-sdk.version>
+    <lombok.version>1.18.8</lombok.version>
+    <guava.version>28.1-jre</guava.version>
+    <sms-starter.version>1.0.0.RELEASE</sms-starter.version>
+    <bce-java-sdk.version>0.10.124</bce-java-sdk.version>
+    <poi.version>4.1.2</poi.version>
+    <fr.opensagres.xdocreport.version>2.0.1</fr.opensagres.xdocreport.version>
+  </properties>
+
+  <modules>
+    <module>crawl-http-payload-spring-boot-autoconfigure</module>
+    <module>crawl-http-payload-spring-boot-starter</module>
+    <module>crawl-http-payload-web</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>8.5.29</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>4.3.16.RELEASE</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>apache-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+        <version>3.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+        <version>${aliyun-sms.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-core</artifactId>
+        <version>${aliyun-sdk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.16.14</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.felord.boot</groupId>
+        <artifactId>sms-spring-boot-autoconfigure</artifactId>
+        <version>${sms-starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baidubce</groupId>
+        <artifactId>bce-java-sdk</artifactId>
+        <version>${bce-java-sdk.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.14</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>${poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>xml-apis</groupId>
+        <artifactId>xml-apis</artifactId>
+        <version>1.4.01</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>${poi.version}</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>xml-apis</artifactId>
+            <groupId>xml-apis</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml-schemas</artifactId>
+        <version>${poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-scratchpad</artifactId>
+        <version>${poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>fr.opensagres.xdocreport</groupId>
+        <artifactId>fr.opensagres.poi.xwpf.converter.core</artifactId>
+        <version>${fr.opensagres.xdocreport.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>fr.opensagres.xdocreport</groupId>
+        <artifactId>fr.opensagres.poi.xwpf.converter.xhtml</artifactId>
+        <version>${fr.opensagres.xdocreport.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>1.6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.xmlbeans</groupId>
+        <artifactId>xmlbeans</artifactId>
+        <version>3.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>stax</groupId>
+        <artifactId>stax-api</artifactId>
+        <version>1.0.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.7</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.2.3</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId> redis.clients </groupId>
+        <artifactId> jedis </artifactId>
+        <version> 2.9.0 </version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.javacrumbs.shedlock</groupId>
+        <artifactId>shedlock-spring</artifactId>
+        <version>4.12.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.javacrumbs.shedlock</groupId>
+        <artifactId>shedlock-provider-redis-jedis</artifactId>
+        <version>4.12.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.75</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.wltea</groupId>
+        <artifactId>IKAnalyzer</artifactId>
+        <version>2012</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+</project>

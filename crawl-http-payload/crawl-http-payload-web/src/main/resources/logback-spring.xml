@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- https://github.com/spring-projects/spring-boot/blob/v1.5.12.RELEASE/spring-boot/src/main/resources/org/springframework/boot/\logging/logback/defaults.xml -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <property name="APP_NAME" value="crawl-http-payload-starter" />
+    <property name="LOG_PATH" value="${user.home}/${APP_NAME}/logs" />
+    <property name="LOG_FILE" value="${LOG_PATH}/application.log" />
+    <property name="RPC_LOG" value="${LOG_PATH}/rpc.log" />
+    <property name="http-logger_LOG" value="${LOG_PATH}/_http_logger_.log" />
+
+    <appender name="APPLICATION"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="RPC"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${RPC_LOG}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${RPC_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="HTTPLOGS"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${http-logger_LOG}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${http-logger_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+ 
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="com.aliyun.sop.cupid.web.filter" >
+        <level value="DEBUG"/>
+        <appender-ref ref="HTTPLOGS" ></appender-ref>
+    </logger>
+
+
+    <logger name="rpcTraceLogger" >
+        <level value="DEBUG"/>
+        <appender-ref ref="RPC" ></appender-ref>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="APPLICATION" />
+    </root>
+</configuration>
